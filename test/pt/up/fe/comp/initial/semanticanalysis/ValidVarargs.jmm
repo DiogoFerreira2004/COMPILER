@@ -1,0 +1,53 @@
+
+class ValidVarargs {
+
+    public int sum(int... numbers) {
+        int result;
+        int i;
+
+        result = 0;
+        i = 0;
+
+
+
+        return result;
+    }
+
+
+    public int process(int multiplier, int... values) {
+        int result;
+
+        result = multiplier;
+
+        return result;
+    }
+
+    public int testVarargs() {
+        int result;
+        int[] arr;
+
+        arr = new int[3];
+        arr[0] = 1;
+        arr[1] = 2;
+        arr[2] = 3;
+
+        result = this.sum(1, 2, 3, 4, 5);
+
+        result = this.sum(42);
+
+        result = this.sum();
+
+        result = this.sum(arr);
+
+
+        result = this.process(2, 1, 2, 3);
+
+
+        result = this.process(2, arr);
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+    }
+}

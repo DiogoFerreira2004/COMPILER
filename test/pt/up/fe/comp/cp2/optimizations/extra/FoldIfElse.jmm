@@ -1,0 +1,17 @@
+/**
+ * Folding em ambos os ramos do 'if'
+ * - (1+2) → 3 no 'then'
+ * - (8/2) → 4 no 'else'
+ */
+class FoldIfElse {
+    public int bar(boolean flag) {
+        int r;
+        if (flag) {
+            r = 1 + 2;       // → 3
+        } else {
+            r = 8 / 2;       // → 4
+        }
+        return r;
+    }
+}
+

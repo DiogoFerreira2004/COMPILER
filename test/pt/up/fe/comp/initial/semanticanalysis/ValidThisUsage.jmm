@@ -1,0 +1,39 @@
+import SuperClass;
+
+
+class ValidThisUsage extends SuperClass {
+    int field1;
+    int field2;
+
+    public int regularMethod() {
+        this.field1 = 10;
+
+        this.setField2(20);
+
+        ValidThisUsage obj;
+        obj = this;
+
+        SuperClass superObj;
+        superObj = this;
+
+        return this.field1 + this.field2;
+    }
+
+    public int setField2(int value) {
+        this.field2 = value;
+        return this.field2;
+    }
+
+    public int chainedMethod() {
+
+        return this.setField2(30).regularMethod();
+    }
+
+    public static void main(String[] args) {
+
+        ValidThisUsage instance;
+        instance = new ValidThisUsage();
+
+        instance.regularMethod();
+    }
+}

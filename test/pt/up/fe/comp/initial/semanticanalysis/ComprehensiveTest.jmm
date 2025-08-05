@@ -1,0 +1,57 @@
+import Math;
+import External;
+
+
+class ComprehensiveTest {
+    int field1;
+    int[] arrayField;
+    boolean flag;
+    
+    public int process(int a, boolean b, int[] c, int... varargs) {
+        int result;
+        int[] localArray;
+        boolean localFlag;
+        
+        localArray = [1, 2, 3, 4, 5];
+        
+        result = a * 2 + 3 - (a / 2);
+        
+        if (b && (a > 10) || !b) {
+            localArray[a-1] = result;
+            result = localArray[0] + localArray[1];
+            
+            result = this.process(result, false, localArray);
+            result = this.process(result, true, localArray, 1, 2, 3);
+            result = this.process(result, true, localArray, [4, 5, 6]);
+        } else {
+            result = Math.calculate(a);
+            
+            Math.print(result);
+        }
+        
+        ComprehensiveTest obj;
+        obj = this;
+        
+        result = localArray.length;
+        
+        while (result < 100 && b) {
+            result = result + 1;
+        }
+        
+        return result;
+    }
+    
+    public static void main(String[] args) {
+        ComprehensiveTest test;
+        test = new ComprehensiveTest();
+        
+        int result;
+        int[] array;
+        
+        array = new int[10];
+        
+        result = test.process(5, true, array);
+        
+        External.show(result);
+    }
+}

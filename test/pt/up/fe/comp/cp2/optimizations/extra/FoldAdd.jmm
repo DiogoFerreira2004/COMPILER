@@ -1,0 +1,9 @@
+/**
+ * Exercício simples: 2 + 3 → 5
+ */
+class FoldAdd {
+    public static void main(String[] args) {
+        int a;
+        a = 2 + 3;           // ➔ deve ficar 5
+    }
+}

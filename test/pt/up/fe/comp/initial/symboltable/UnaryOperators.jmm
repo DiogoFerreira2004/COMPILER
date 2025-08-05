@@ -1,0 +1,9 @@
+class UnaryOperators {
+    public int negate(int a) {
+        return -a;
+    }
+
+    public boolean not(boolean flag) {
+        return !flag;
+    }
+}

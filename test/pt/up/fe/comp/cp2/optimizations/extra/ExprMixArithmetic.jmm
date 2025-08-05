@@ -1,0 +1,9 @@
+class ExprMixArithmetic {
+    public int compute() {
+        int result;
+        result = 2 + 3 * 4 - (10 / 2);
+        return result;
+    }
+
+    public static void main(String[] args) {}
+}

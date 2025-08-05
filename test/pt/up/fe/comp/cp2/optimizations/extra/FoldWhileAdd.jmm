@@ -1,0 +1,17 @@
+/**
+ * Const folding dentro de um ciclo 'while'
+ * 2+3 deve ser dobrado para 5.
+ */
+class FoldWhileAdd {
+    public static void main(String[] args) {
+        int limit;
+        int i;
+        limit = 2 + 3;          // → 5
+        i = 0;
+
+        while (i < limit) {
+            i = i + 1;
+        }
+
+    }
+}

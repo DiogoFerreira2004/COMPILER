@@ -1,0 +1,13 @@
+// PropIfCond.jmm
+class PropIfCond {
+    public int foo(int y) {
+        int a;
+        a = 10;
+        if (a < y) {
+            return y;
+        }
+        return a;
+    }
+        public static void main(String[] args) {
+        }
+}

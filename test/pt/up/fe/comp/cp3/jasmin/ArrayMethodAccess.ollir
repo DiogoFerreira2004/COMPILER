@@ -1,0 +1,53 @@
+import ioPlus;
+
+ArrayMethodAccess {
+
+
+
+
+.construct ArrayMethodAccess().V {
+    invokespecial(this, "<init>").V;
+}
+
+.method public index().i32 {
+   ret.i32 2.i32;
+}
+
+.method public static main(args.array.String).V {
+   tmp0.ArrayMethodAccess :=.ArrayMethodAccess new(ArrayMethodAccess).ArrayMethodAccess;
+invokespecial(tmp0.ArrayMethodAccess, "<init>").V;
+obj.ArrayMethodAccess :=.ArrayMethodAccess tmp0.ArrayMethodAccess;
+
+   nums.array.i32 :=.array.i32 new(array, 4.i32).array.i32;
+
+   nums[0.i32].i32 :=.i32 10.i32;
+
+   nums[1.i32].i32 :=.i32 20.i32;
+
+   nums[2.i32].i32 :=.i32 30.i32;
+
+   nums[3.i32].i32 :=.i32 40.i32;
+
+   i.i32 :=.i32 1.i32;
+
+   tmp2.i32 :=.i32 nums.array.i32[i.i32].i32;
+
+invokestatic(ioPlus, "printResult", tmp2.i32).V;
+   tmp3.i32 :=.i32 invokevirtual(obj.ArrayMethodAccess, "index").i32;
+tmp4.i32 :=.i32 nums.array.i32[tmp3.i32].i32;
+
+invokestatic(ioPlus, "printResult", tmp4.i32).V;
+   tmp5.i32 :=.i32 nums.array.i32[0.i32].i32;
+tmp6.i32 :=.i32 tmp5.i32 /.i32 10.i32;
+tmp7.i32 :=.i32 nums.array.i32[tmp6.i32].i32;
+
+invokestatic(ioPlus, "printResult", tmp7.i32).V;
+   tmp8.i32 :=.i32 arraylength(nums.array.i32).i32;
+tmp9.i32 :=.i32 tmp8.i32 -.i32 2.i32;
+tmp10.i32 :=.i32 nums.array.i32[tmp9.i32].i32;
+
+invokestatic(ioPlus, "printResult", tmp10.i32).V;
+   ret.V ;
+}
+
+}

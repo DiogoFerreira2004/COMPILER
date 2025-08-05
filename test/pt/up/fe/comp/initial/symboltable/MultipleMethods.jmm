@@ -1,0 +1,17 @@
+class MultipleMethods {
+    public int method1(){
+        return 1;
+
+    }
+
+    public boolean method2(boolean b){
+        return b;
+    }
+
+    public Methods method3(Methods m, int x, boolean flag){
+        return m;
+    }
+
+    public void method4(){
+    }
+}

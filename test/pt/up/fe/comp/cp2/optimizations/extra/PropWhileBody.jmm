@@ -1,0 +1,14 @@
+// PropWhileBody.jmm
+class PropWhileBody {
+    public int fun() {
+        int x; int i;
+        x = 7;      // constante propagada dentro do corpo
+        i = 0;
+        while (i < 3) {
+            i = i + x;   // aqui deve aparecer literal 7
+        }
+        return i;
+    }
+        public static void main(String[] args) {
+        }
+}

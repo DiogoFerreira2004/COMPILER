@@ -1,0 +1,33 @@
+// Este arquivo testa a compatibilidade de tipos em operações aritméticas e lógicas
+
+class OperationTypeCompatibility {
+    public static void main(String[] args) {
+        int a;
+        int b;
+        boolean c;
+        
+        // Inicializações
+        a = 10;
+        b = 20;
+        c = true;
+        
+        // Operações válidas com tipos compatíveis
+        int validSum;
+        validSum = a + b; // OK: int + int = int
+        
+        boolean validLogic;
+        validLogic = c && true; // OK: boolean && boolean = boolean
+        
+        // Operações inválidas com tipos incompatíveis
+        int invalidSum;
+        invalidSum = a + c; // Erro: não se pode somar int com boolean
+        
+        // Operação inválida de comparação
+        boolean invalidComparison;
+        invalidComparison = a < c; // Erro: não se pode comparar int com boolean
+        
+        // Operação lógica com tipos incompatíveis
+        boolean invalidLogic;
+        invalidLogic = c && a; // Erro: operador && requer dois booleanos
+    }
+}

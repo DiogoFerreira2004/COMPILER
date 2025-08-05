@@ -1,0 +1,28 @@
+class RegAlloc {
+    public int complexTest(int n){
+        int a;
+        int b;
+        int c;
+        int result;
+
+        a = 0;
+        b = 1;
+        c = 0;
+        result = 0;
+
+        while (a < n) {
+            if (a < 5) {
+                c = a + b;
+                result = result + c;
+            } else {
+                c = a - b;
+                result = result - c;
+            }
+            a = a + 1;
+        }
+
+        return result;
+    }
+
+    public static void main(String[] args) {}
+}

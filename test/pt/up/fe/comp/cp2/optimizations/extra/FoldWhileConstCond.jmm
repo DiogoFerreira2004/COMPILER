@@ -1,0 +1,14 @@
+/**
+ * Condição do 'while' constante: (0 < 1) → true.
+ * O objectivo do teste é só confirmar o folding de 0 e 1,
+ * não a eliminação do ciclo.
+ */
+class FoldWhileConstCond {
+    public static void main(String[] args) {
+        int x;
+        x = 0;
+        while (0 < 1) {
+            x = 1 + 1;       // 1+1 → 2
+        }
+    }
+}

@@ -1,0 +1,17 @@
+
+class MultipleVarargs {
+    public int methodA(int... a, int... b) { // invalido
+        return 0;
+    }
+    
+    public int methodB(int... a, int b) { // invalido
+        return 0;
+    }
+    
+    public int methodC(int a, int... b) {
+        return 0;
+    }
+    
+    public static void main(String[] args) {
+    }
+}

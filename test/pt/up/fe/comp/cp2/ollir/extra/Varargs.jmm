@@ -1,0 +1,15 @@
+class Varargs {
+    int sum(int... numbers) {
+        int result;
+        int i;
+        while (i < numbers.length) {
+            result = result + numbers[i];
+            i = i + 1;
+        }
+        return result;
+    }
+
+    int test() {
+        return this.sum(1, 2, 3, 4, 5);
+    }
+}

@@ -1,0 +1,38 @@
+// PropChain.jmm
+class PropChain {
+    public int fun() {
+        int a; int b; int c;
+        a = 2;
+        b = a;
+        c = b;
+        return c;
+    }
+        public static void main(String[] args) {
+        }
+}
+
+/*
+
+PropChain {
+
+
+
+
+.construct PropChain().V {
+    invokespecial(this, "<init>").V;
+}
+
+.method public main().i32 {
+   a.i32 :=.i32 2.i32;
+
+   b.i32 :=.i32 2.i32;
+
+   c.i32 :=.i32 2.i32;
+
+   ret.i32 2.i32;
+}
+
+}
+
+
+*/

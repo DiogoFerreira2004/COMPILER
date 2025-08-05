@@ -1,0 +1,15 @@
+// PropIfElse.jmm
+class PropIfElse {
+    public int bar(boolean flag) {
+        int c; int d;
+        c = 3;
+        d = 4;
+        if (flag) {
+            return c;   // deve aparecer 3
+        } else {
+            return d;   // ou 4
+        }
+    }
+        public static void main(String[] args) {
+        }
+}

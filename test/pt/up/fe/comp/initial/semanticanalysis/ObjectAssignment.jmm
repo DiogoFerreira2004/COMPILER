@@ -1,0 +1,25 @@
+import ExternalClass;
+
+
+class ObjectAssignment {
+    public int method() {
+        ObjectAssignment obj1;
+        ObjectAssignment obj2;
+        
+        obj1 = new ObjectAssignment();
+        obj2 = obj1;
+        
+        ExternalClass ext1;
+        ExternalClass ext2;
+        
+        ext1 = new ExternalClass();
+        ext2 = ext1;
+        
+        obj1 = ext1; // invalido
+        
+        return 0;
+    }
+    
+    public static void main(String[] args) {
+    }
+}

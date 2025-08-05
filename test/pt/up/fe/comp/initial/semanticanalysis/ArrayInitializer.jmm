@@ -1,0 +1,35 @@
+// This test verifies array initializer syntax and usage
+
+class ArrayInitializer {
+    public int method() {
+        int[] a;
+        
+        a = [1, 2, 3, 4, 5];
+        
+        a = [1+2, 3*4, 5];
+        
+        a = [1, true, 3]; // invalido
+        
+        int b; // invalido
+        b = [1, 2, 3];
+        
+        return a;
+    }
+    
+    public int varargMethod(int... values) {
+        int sum;
+        sum = 0;
+        
+        return sum;
+    }
+    
+    public static void main(String[] args) {
+        ArrayInitializer obj;
+        obj = new ArrayInitializer();
+        
+        int result;
+        result = obj.varargMethod(1, 2, 3, 4, 5);
+        
+        result = obj.varargMethod([1, 2, 3, 4, 5]);
+    }
+}

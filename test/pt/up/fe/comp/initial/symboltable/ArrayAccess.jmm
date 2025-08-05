@@ -1,0 +1,12 @@
+class ArrayAccess {
+    public int access(int[] arr, int index) {
+        return arr[index];
+    }
+
+    public int[] createArray(int n) {
+        int[] arr;
+        // Alocação de array (supondo que a gramática suporte a sintaxe "new int[n]")
+        arr = new int[n];
+        return arr;
+    }
+}

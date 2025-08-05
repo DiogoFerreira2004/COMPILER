@@ -1,0 +1,16 @@
+class LocalVariables {
+    int field1;
+
+    public int compute(int a, int b) {
+        int sum;
+        sum = a + b;
+        return sum;
+    }
+
+    public void test() {
+        int x;
+        int y;
+        x = 5;
+        y = compute(x, 10);
+    }
+}

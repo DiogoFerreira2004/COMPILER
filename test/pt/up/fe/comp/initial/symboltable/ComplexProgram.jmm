@@ -1,0 +1,35 @@
+import java.util.Arrays;
+
+class ComplexProgram {
+    int[] data;
+    boolean initialized;
+    
+    public static void main(String[] args) {
+        ComplexProgram program;
+        program = new ComplexProgram();
+        program.run(args, 10, true);
+    }
+    
+    public int[] processData(int[] input, int factor, boolean sorted) {
+        int i;
+        int[] result;
+        
+        if (sorted) {
+            result = [1, 2, 3];
+        } else {
+            result = [3, 2, 1];
+        }
+        
+        return result;
+    }
+    
+    public void run(String[] args, int count, boolean debug) {
+        int i;
+        i = 0;
+        
+        while (i < count) {
+            this.processData([i], i, true);
+            i = i + 1;
+        }
+    }
+}

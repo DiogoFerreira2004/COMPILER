@@ -1,0 +1,77 @@
+// Este arquivo testa operações válidas que devem passar na análise semântica
+
+class ValidOperations {
+    public static void main(String[] args) {
+        int a;
+        int b;
+        boolean c;
+        boolean d;
+        int[] arr;
+        
+        a = 10;
+        b = 20;
+        c = true;
+        d = false;
+        arr = new int[5];
+        
+        // Operações aritméticas válidas
+        int sum;
+        sum = a + b;
+        
+        int diff;
+        diff = a - b;
+        
+        int product;
+        product = a * b;
+        
+        int quotient;
+        quotient = a / b;
+        
+        int mod;
+        mod = a % b;
+        
+        int negation;
+        negation = -a;
+        
+        // Operações booleanas válidas
+        boolean and;
+        and = c && d;
+        
+        boolean or;
+        or = c || d;
+        
+        boolean not;
+        not = !c;
+        
+        // Comparações válidas
+        boolean lessThan;
+        lessThan = a < b;
+        
+        boolean greaterThan;
+        greaterThan = a > b;
+        
+        boolean lessOrEqual;
+        lessOrEqual = a <= b;
+        
+        boolean greaterOrEqual;
+        greaterOrEqual = a >= b;
+        
+        boolean equality;
+        equality = a == b;
+        
+        boolean inequality;
+        inequality = a != b;
+        
+        // Acesso a array válido
+        arr[0] = 1;
+        arr[a] = 2;
+        arr[a+b] = 3;
+        
+        int arrValue;
+        arrValue = arr[a];
+        
+        // Encadeamento de operações aritméticas
+        int complex;
+        complex = a + b * (a - b) / 2 % 3;
+    }
+}

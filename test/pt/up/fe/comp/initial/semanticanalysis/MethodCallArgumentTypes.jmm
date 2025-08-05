@@ -1,0 +1,35 @@
+// Este arquivo testa a compatibilidade de tipos de argumentos em chamadas de método
+
+class MethodCallArgumentTypes {
+    public static void main(String[] args) {
+        MethodCallArgumentTypes obj;
+        obj = new MethodCallArgumentTypes();
+        
+        // Chamadas válidas com tipos compatíveis
+        obj.methodWithIntParam(10); // OK: int esperado, int fornecido
+        obj.methodWithMultipleParams(5, true); // OK: tipos compatíveis
+        obj.methodWithExpression(10 + 20, 5 < 10); // OK: expressões com tipos corretos
+        
+        // Chamadas inválidas com tipo incompatível
+        obj.methodWithIntParam(true); // Erro: boolean não é compatível com int
+        
+        // Chamada inválida com múltiplos parâmetros de tipos incompatíveis
+        obj.methodWithMultipleParams(false, 20); // Erro: tipos incompatíveis
+        
+        // Chamada com número incorreto de parâmetros
+        obj.methodWithMultipleParams(5); // Erro: faltam parâmetros
+        obj.methodWithIntParam(10, 20); // Erro: parâmetros em excesso
+    }
+    
+    public void methodWithIntParam(int a) {
+        // Método com parâmetro inteiro
+    }
+    
+    public void methodWithMultipleParams(int a, boolean b) {
+        // Método com múltiplos parâmetros
+    }
+    
+    public void methodWithExpression(int a, boolean b) {
+        // Método que aceita expressões como parâmetros
+    }
+}

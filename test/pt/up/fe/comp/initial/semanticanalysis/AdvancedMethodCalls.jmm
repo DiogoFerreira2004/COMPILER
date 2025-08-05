@@ -1,0 +1,43 @@
+
+class AdvancedMethodCalls {
+    public int intMethod(int a) {
+        return a * 2;
+    }
+    
+    public boolean boolMethod(boolean flag) {
+        return !flag;
+    }
+    
+    public int varargMethod(int a, int... values) {
+        return a;
+    }
+    
+    public int testMethods() {
+        int a;
+        boolean b;
+        int[] arr;
+        
+        a = 10;
+        b = true;
+        arr = new int[5];
+        
+        a = this.intMethod(5);
+        
+        a = this.intMethod(true); // invalido aqui
+        
+        b = this.intMethod(5); // invalido aqui
+        
+        b = this.boolMethod(false);
+        
+        a = this.varargMethod(1, 2, 3, 4);
+        
+        a = this.varargMethod(1, arr);
+        
+        a = this.undeclaredMethod(5); // invalido
+        
+        return a;
+    }
+    
+    public static void main(String[] args) { // apenas placeholder
+    }
+}

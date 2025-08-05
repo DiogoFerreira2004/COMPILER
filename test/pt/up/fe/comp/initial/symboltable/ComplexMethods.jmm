@@ -1,0 +1,14 @@
+class ComplexMethods {
+    public int[] transform(int[] array, int factor) {
+        int[] result;
+        result = new int[array.length];
+        // Processamento simples (poderia ser expandido para testes mais complexos)
+        return result;
+    }
+
+    public boolean compare(int a, int b) {
+        boolean res;
+        res = a < b;
+        return res;
+    }
+}

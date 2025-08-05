@@ -1,0 +1,89 @@
+// Este arquivo testa escopos e declarações válidas
+
+class ValidScopesAndDeclarations {
+    int classField;
+    boolean anotherField;
+    
+    public static void main(String[] args) {
+        int outerVar;
+        outerVar = 10;
+        
+        // Escopo de bloco
+        {
+            int blockVar;
+            blockVar = 20;
+            
+            // Acesso válido a variável de escopo superior
+            outerVar = 30;
+            
+            // Escopo aninhado
+            {
+                int nestedBlockVar;
+                nestedBlockVar = 40;
+                
+                // Acesso válido a variáveis de escopos superiores
+                blockVar = 50;
+                outerVar = 60;
+            }
+        }
+        
+        // Escopo de if
+        if (true) {
+            int ifVar;
+            ifVar = 70;
+            
+            // Acesso válido a variável de escopo superior
+            outerVar = 80;
+        } else {
+            int elseVar;
+            elseVar = 90;
+            
+            // Acesso válido a variável de escopo superior
+            outerVar = 100;
+        }
+        
+        // Escopo de while
+        while (false) {
+            int whileVar;
+            whileVar = 110;
+            
+            // Acesso válido a variável de escopo superior
+            outerVar = 120;
+        }
+        
+        // Declarações válidas com mesmo nome em diferentes escopos
+        {
+            int sameName;
+            sameName = 130;
+        }
+        
+        {
+            int sameName; // OK: mesmo nome em escopo diferente
+            sameName = 140;
+        }
+    }
+    
+    public int instanceMethod() {
+        // Acesso válido a campo da classe
+        classField = 150;
+        return classField;
+    }
+    
+    public boolean anotherMethod(int param) {
+        // Declaração válida de variável local com mesmo nome que parâmetro em escopo interno
+        {
+            int param; // OK: redeclaração em escopo interno
+            param = 160;
+        }
+        
+        // Acesso válido a parâmetro
+        int result;
+        result = param + 1;
+        
+        // Acesso válido a campos da classe
+        classField = 170;
+        anotherField = true;
+        
+        return anotherField;
+    }
+}

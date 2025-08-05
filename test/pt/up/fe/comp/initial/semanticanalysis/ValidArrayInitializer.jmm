@@ -1,0 +1,25 @@
+
+class ValidArrayInitializer {
+    public int[] returnArrayMethod() {
+        return [1, 2, 3, 4, 5];
+    }
+
+    public int testArrayInitializers() {
+        int[] arr1;
+        int[] arr2;
+        int i;
+
+        arr1 = [10, 20, 30, 40, 50];
+
+        arr2 = [1+2, 3*4, 5-1, 10/2];
+
+        i = arr1[2];
+
+        i = arr1.length;
+
+        return i;
+    }
+
+    public static void main(String[] args) {
+    }
+}

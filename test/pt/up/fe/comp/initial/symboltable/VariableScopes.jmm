@@ -1,0 +1,19 @@
+class VariableScopes {
+    int x;
+    
+    public int testScopes() {
+        int x;
+        x = 10;
+        
+        {
+            int y;
+            y = 20;
+        }
+        
+        return x;
+    }
+    
+    public int anotherMethod(int x) {
+        return x;
+    }
+}

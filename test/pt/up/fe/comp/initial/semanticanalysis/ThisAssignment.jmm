@@ -1,0 +1,17 @@
+
+class ThisAssignment {
+    public int method() {
+        ThisAssignment a;
+        a = this;
+        return 1;
+    }
+    
+    public int invalidMethod() {
+        int a; // invalido ???
+        a = this;
+        return 1;
+    }
+    
+    public static void main(String[] args) {
+    }
+}

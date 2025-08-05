@@ -1,0 +1,11 @@
+class PropNested {
+    public int fun() {
+        int a; int b; int c;
+        a = 1;
+        b = a;
+        c = a + b;    // 1 + 1
+        return c;
+    }
+        public static void main(String[] args) {
+        }
+}

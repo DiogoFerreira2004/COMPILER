@@ -1,0 +1,9 @@
+class EdgeCases {
+    public int testLiterals() {
+        int zero;
+        int large;
+        zero = 0;
+        large = 123456789;
+        return large;
+    }
+}

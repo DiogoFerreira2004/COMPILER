@@ -1,0 +1,42 @@
+
+class ComplexExpressions {
+    public int method() {
+        int a;
+        int b;
+        int c;
+        boolean flag1;
+        boolean flag2;
+        int[] arr;
+        
+        a = 5;
+        b = 10;
+        c = 15;
+        flag1 = true;
+        flag2 = false;
+        arr = new int[10];
+        
+        a = (a + b) * c / (a - 2);
+        
+        flag1 = (a < b) && (b < c) || (c < a);
+        
+        flag2 = !(a < b) && flag1;
+        
+        a = a + flag1; // invalido
+        
+        arr[a + b - c] = 42;
+        
+        arr[flag1] = 42; // invalido
+        
+        flag1 = a && b; // invalido
+        
+        a = arr.length;
+        
+        b = a.length; // invalido
+        
+        return a;
+    }
+    
+    public static void main(String[] args) {
+        // Just a placeholder
+    }
+}

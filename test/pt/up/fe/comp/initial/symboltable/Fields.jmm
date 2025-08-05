@@ -1,0 +1,17 @@
+class Fields {
+    int field1;
+    boolean field2;
+    Fields field3;
+
+    public int getField1(){
+        return field1;
+    }
+
+    public boolean getField2(){
+        return field2;
+    }
+
+    public Fields getField3(){
+        return field3;
+    }
+}

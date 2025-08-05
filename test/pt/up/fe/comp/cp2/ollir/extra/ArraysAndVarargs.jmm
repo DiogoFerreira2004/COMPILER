@@ -1,0 +1,28 @@
+class ArraysAndVarargs {
+    public int processArray(int[] array) {
+        int sum;
+        int i;
+        while (i < array.length) {
+            sum = sum + array[i];
+            i = i + 1;
+        }
+        return sum;
+    }
+
+    public int processVarargs(int... values) {
+        return this.processArray(values);
+    }
+
+    public int test() {
+        int[] arr;
+        arr[0] = 1;
+        arr[1] = 2;
+        arr[2] = 3;
+        return this.processVarargs(10, 20, 30) + this.processArray(arr);
+    }
+
+    public static void main(String[] args) {
+
+    }
+
+}

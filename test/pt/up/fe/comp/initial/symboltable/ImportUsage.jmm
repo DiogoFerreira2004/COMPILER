@@ -1,0 +1,12 @@
+import java.util.List;
+import java.io.File;
+import MyCustomClass;
+
+class ImportUsage {
+    public int processImports() {
+        MyCustomClass obj;
+        obj = new MyCustomClass();
+        obj.method();
+        return 0;
+    }
+}

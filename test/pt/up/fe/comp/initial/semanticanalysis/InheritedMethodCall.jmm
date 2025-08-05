@@ -1,0 +1,32 @@
+// Este arquivo testa chamadas de métodos de superclasses
+import java.util.Object;
+
+class InheritedMethodCall extends SuperClass {
+    public static void main(String[] args) {
+        InheritedMethodCall obj;
+        obj = new InheritedMethodCall();
+        
+        // Chamada de método herdado
+        int result;
+        result = obj.superClassMethod(10); // OK: método herdado da superclasse
+        
+        // Chamada de método sobrescrito
+        boolean boolResult;
+        boolResult = obj.overriddenMethod(); // OK: sobrescrita de método
+        
+        // Chamada de método herdado com outro nome
+        int value;
+        value = obj.anotherSuperClassMethod(); // OK: método herdado
+    }
+    
+    // Sobrescrita de método da superclasse
+    public boolean overriddenMethod() {
+        return true;
+    }
+    
+    // Chamada para um método da superclasse de dentro de um método
+    public void callSuperMethod() {
+        int value;
+        value = this.superClassMethod(5); // OK: chamada a método herdado
+    }
+}

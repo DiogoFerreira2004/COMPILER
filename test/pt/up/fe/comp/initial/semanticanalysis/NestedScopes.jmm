@@ -1,0 +1,41 @@
+
+class NestedScopes {
+    int field;
+    
+    public int method(int param) {
+        int outerVar;
+        
+        outerVar = 10;
+        field = 20;
+        
+        if (param < 10) {
+            int innerVar;
+            innerVar = outerVar + field + param;
+            
+            {
+                int deepVar;
+                deepVar = innerVar + outerVar;
+                outerVar = deepVar;
+            }
+            
+            outerVar = deepVar;  // invalido
+        }
+        
+        param = innerVar; // invalido
+        
+        while (outerVar < 100) {
+            int whileVar;
+            whileVar = outerVar;
+            outerVar = whileVar + 1;
+            
+            if (outerVar > 50) {
+                return whileVar;
+            }
+        }
+        
+        return param + outerVar;
+    }
+    
+    public static void main(String[] args) {
+    }
+}

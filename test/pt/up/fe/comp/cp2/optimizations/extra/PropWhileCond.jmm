@@ -1,0 +1,13 @@
+// PropWhileCond.jmm
+class PropWhileCond {
+    public int fun() {
+        int i;
+        i = 0;
+        while (i < 5) {  // '5' vem de constante
+            i = i + 1;
+        }
+        return i;
+    }
+        public static void main(String[] args) {
+        }
+}

@@ -1,0 +1,60 @@
+
+class ValidComplexExpressions {
+    public int arithmeticMethod(int a, int b) {
+        int c;
+
+        c = a * b + (a - b) / 2;
+
+
+        c = (a + b) * (a - b);
+
+        c = ((a + b) * 2) - (a / (b + 1));
+
+        c = this.arithmeticMethod(a, b) + this.arithmeticMethod(b, a);
+
+        return c;
+    }
+
+    public boolean booleanMethod(boolean a, boolean b) {
+        boolean c;
+
+        c = a && b || (!a && !b);
+
+        c = (a && b) || (!a && !b);
+
+        c = ((a && b) || (!a)) && ((a || b) && (!b));
+
+        return c;
+    }
+
+    public int testArrayAccess(int[] arr, int index) {
+        int result;
+
+        result = arr[index + 1];
+
+
+        result = arr[this.arithmeticMethod(index, 2)];
+
+        result = arr.length * 2;
+
+        return result;
+    }
+
+    public boolean testConditionalExpressions(int a, int b) {
+        boolean result;
+
+        result = a < b;
+        result = a <= b;
+        result = a > b;
+        result = a >= b;
+
+        result = a == b;
+
+        result = (a < b) && (a > 0) || (b < 0);
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+    }
+}

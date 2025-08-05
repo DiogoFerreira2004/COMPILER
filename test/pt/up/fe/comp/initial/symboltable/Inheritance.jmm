@@ -1,0 +1,11 @@
+class Child extends Parent {
+    int y;
+    
+    public int getY(){
+        return y;
+    }
+    
+    public int getSum(){
+        return y;
+    }
+}

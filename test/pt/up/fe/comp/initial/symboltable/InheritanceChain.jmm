@@ -1,0 +1,11 @@
+class Parent {
+    public int getValue() {
+        return 10;
+    }
+}
+
+class Child extends Parent {
+    public int getChildValue() {
+        return 20;
+    }
+}

@@ -1,0 +1,39 @@
+// Este arquivo testa acesso ao atributo length de arrays
+
+class ArrayLengthAccess {
+    public static void main(String[] args) {
+        int[] array;
+        int notArray;
+        boolean boolValue;
+        int length;
+        
+        array = new int[10];
+        notArray = 5;
+        boolValue = true;
+        
+        // Acesso válido ao length de um array
+        length = array.length; // OK: arrays têm o atributo length
+        
+        // Acesso inválido ao length de algo que não é array
+        length = notArray.length; // Erro: variáveis int não têm o atributo length
+        
+        // Acesso inválido ao length de um boolean
+        length = boolValue.length; // Erro: variáveis boolean não têm o atributo length
+        
+        // Uso válido do length em expressão
+        int validExpression;
+        validExpression = array.length * 2; // OK: uso do length em expressão aritmética
+        
+        // Tentativa inválida de modificar o length
+        array.length = 20; // Erro: length é somente leitura
+        
+        // Acesso inválido a outros atributos inexistentes de array
+        int invalidAttribute;
+        invalidAttribute = array.size; // Erro: arrays não têm o atributo size
+    }
+    
+    public int getArrayLength(int[] arr) {
+        // Retorno válido do length de um array passado como parâmetro
+        return arr.length; // OK: parâmetro array tem o atributo length
+    }
+}

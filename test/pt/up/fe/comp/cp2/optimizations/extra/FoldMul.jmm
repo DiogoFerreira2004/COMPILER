@@ -1,0 +1,9 @@
+/**
+ * Exercício simples: 4 * 3 → 12
+ */
+class FoldMul {
+    public static void main(String[] args) {
+        int b;
+        b = 4 * 3;           // ➔ deve ficar 12
+    }
+}

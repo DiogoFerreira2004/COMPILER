@@ -1,0 +1,11 @@
+class VarargsTest {
+    public int sum(int... numbers) {
+        int result;
+        result = 0;
+        return result;
+    }
+    
+    public int process(int first, boolean flag, int... rest) {
+        return first;
+    }
+}

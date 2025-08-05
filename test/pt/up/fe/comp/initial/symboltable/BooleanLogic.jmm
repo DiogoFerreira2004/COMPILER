@@ -1,0 +1,7 @@
+class BooleanLogic {
+    public boolean evaluate(boolean a, boolean b) {
+        boolean result;
+        result = a && b;
+        return result;
+    }
+}

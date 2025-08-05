@@ -1,0 +1,37 @@
+Varargs {
+
+
+
+
+.construct Varargs().V {
+    invokespecial(this, "<init>").V;
+}
+
+.method varargs sum(numbers.array.i32).i32 {
+   while0:
+tmp0.i32 :=.i32 arraylength(numbers.array.i32).i32;
+tmp1.bool :=.bool i.i32 <.bool tmp0.i32;
+if (!.bool tmp1.bool) goto endif0;
+tmp2.i32 :=.i32 numbers.array.i32[i.i32].i32;
+tmp3.i32 :=.i32 result.i32 +.i32 tmp2.i32;
+result.i32 :=.i32 tmp3.i32;
+i.i32 :=.i32 i.i32 +.i32 1.i32;
+
+goto while0;
+endif0:
+
+   ret.i32 result.i32;
+}
+
+.method test().i32 {
+   tmp5.array.i32 :=.array.i32 new(array, 5.i32).array.i32;
+tmp5[0.i32].i32 :=.i32 1.i32;
+tmp5[1.i32].i32 :=.i32 2.i32;
+tmp5[2.i32].i32 :=.i32 3.i32;
+tmp5[3.i32].i32 :=.i32 4.i32;
+tmp5[4.i32].i32 :=.i32 5.i32;
+tmp6.i32 :=.i32 invokevirtual(this.Varargs, "sum", tmp5.array.i32).i32;
+ret.i32 tmp6.i32;
+}
+
+}

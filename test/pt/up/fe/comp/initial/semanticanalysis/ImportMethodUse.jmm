@@ -1,0 +1,23 @@
+import Library;
+import Math;
+
+
+class ImportMethodUse {
+    public int method() {
+        int a;
+        boolean b;
+        
+        a = Library.getInt(); //assume
+        
+        a = Math.sqrt(16);
+        
+        Math.println(a);
+        
+        a = 5 + Math.sqrt(16) * 2; // deve assumir tambem
+        
+        return a;
+    }
+    
+    public static void main(String[] args) {
+    }
+}

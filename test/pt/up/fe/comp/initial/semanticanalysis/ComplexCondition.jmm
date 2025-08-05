@@ -1,0 +1,30 @@
+
+class ComplexCondition {
+    public int method(int a, int b, boolean flag) {
+        if (a < b && flag) {
+            a = 1;
+        } else {
+            a = 2;
+        }
+        
+        if (a + b) { // invalido
+            a = 3;
+        }
+        
+        while ((a < b) && flag) {
+            a = a + 1;
+        }
+        
+        // invalido
+        int[] arr;
+        arr = new int[10];
+        while (arr) {
+            b = b + 1;
+        }
+        
+        return a;
+    }
+    
+    public static void main(String[] args) {
+    }
+}

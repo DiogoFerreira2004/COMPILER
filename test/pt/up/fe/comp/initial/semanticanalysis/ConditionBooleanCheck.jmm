@@ -1,0 +1,38 @@
+// Este arquivo testa que expressões em condições devem retornar boolean
+
+class ConditionBooleanCheck {
+    public static void main(String[] args) {
+        int intValue;
+        boolean boolValue;
+        int[] arrayValue;
+        
+        intValue = 5;
+        boolValue = true;
+        arrayValue = new int[3];
+        
+        // Condição válida com boolean
+        if (boolValue) { // OK: condição com boolean
+            intValue = 10;
+        }
+        
+        // Condição inválida com inteiro
+        if (intValue) { // Erro: expressão em condição deve retornar boolean
+            boolValue = false;
+        }
+        
+        // Loop com condição inválida
+        while (42) { // Erro: expressão em condição deve retornar boolean
+            intValue = intValue + 1;
+        }
+        
+        // Condição inválida com array
+        if (arrayValue) { // Erro: array não pode ser usado como condição
+            intValue = 20;
+        }
+        
+        // Operação condicional complexa inválida
+        if (boolValue && intValue) { // Erro: segundo operando de && deve ser boolean
+            intValue = 30;
+        }
+    }
+}

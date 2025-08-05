@@ -1,0 +1,10 @@
+class CommentsTest {
+    // Comentário de linha única
+    /* comentario de
+    varias linhas eheh */
+    public int compute() {
+        int x;
+        x = 5; /* Comentário inline */
+        return x;
+    }
+}

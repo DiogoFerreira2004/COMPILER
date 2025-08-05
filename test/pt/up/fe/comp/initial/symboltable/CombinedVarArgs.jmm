@@ -1,0 +1,15 @@
+class CombinedVarArgs {
+    public int calculateSum(int... values) {
+        int sum;
+        sum = 0;
+        values = [1, 2, 3, 4];
+        return sum;
+    }
+    
+    public int[] getSequence(int start, int... increments) {
+        int[] result;
+        result = [start];
+        increments = [1, 2, 3];
+        return result;
+    }
+}

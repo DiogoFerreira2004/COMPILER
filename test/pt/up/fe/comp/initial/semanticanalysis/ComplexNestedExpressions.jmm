@@ -1,0 +1,53 @@
+// Este arquivo testa expressões complexas aninhadas e verificação de tipos
+
+class ComplexNestedExpressions {
+    public static void main(String[] args) {
+        int a;
+        int b;
+        int c;
+        boolean d;
+        boolean e;
+        
+        a = 10;
+        b = 20;
+        c = 30;
+        d = true;
+        e = false;
+        
+        // Expressão aritmética complexa válida
+        int validArithmetic;
+        validArithmetic = a + b * (a - b) / 2; // OK: expressão aritmética válida
+        
+        // Expressão condicional complexa válida
+        boolean validCondition;
+        validCondition = d && !e || (a < b); // OK: expressão booleana válida
+        
+        // Expressão condicional válida com operadores de comparação
+        boolean validComparison;
+        validComparison = (a < b) && (b <= c) || !(c > a); // OK: comparações válidas
+        
+        // Expressão inválida misturando tipos incompatíveis
+        int invalidMix;
+        invalidMix = a + (d && e); // Erro: não pode adicionar int e boolean
+        
+        // Expressão condicional inválida
+        boolean invalidCondition;
+        invalidCondition = d && (a + b); // Erro: não pode usar && com boolean e int
+        
+        // Expressão aritmética complexa inválida
+        int invalidNestedArithmetic;
+        invalidNestedArithmetic = a * (b + (c * (d || e))); // Erro: boolean em expressão aritmética
+        
+        // Expressão condicional complexa inválida
+        boolean invalidNestedCondition;
+        invalidNestedCondition = (d && (a < (b + e))); // Erro: boolean em operação aritmética
+    }
+    
+    public boolean complexMethodCall() {
+        return this.testMethod(10 + 5, this.testMethod(2, true) < 20); // OK: chamadas aninhadas com tipos corretos
+    }
+    
+    public int testMethod(int x, boolean y) {
+        return 42;
+    }
+}

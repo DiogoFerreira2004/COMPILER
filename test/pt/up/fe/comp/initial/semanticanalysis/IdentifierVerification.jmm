@@ -1,0 +1,28 @@
+// Este arquivo testa a verificação de identificadores não declarados
+
+class IdentifierVerification {
+    int declaredField;
+    
+    public static void main(String[] args) {
+        int declaredLocal;
+        declaredLocal = 10;
+        
+        // Uso de variável declarada (deve passar)
+        int useOfDeclaredVar;
+        useOfDeclaredVar = declaredLocal;
+        
+        // Uso de variável não declarada (deve falhar)
+        int useOfUndeclaredVar;
+        useOfUndeclaredVar = undeclaredVariable; // Erro: variável não declarada
+    }
+    
+    public int testParameter(int declaredParam) {
+        // Uso de parâmetro declarado (deve passar)
+        return declaredParam + 1;
+    }
+    
+    public boolean testUndeclaredMethod() {
+        // Chamada de método não declarado (deve falhar)
+        return undeclaredMethod(); // Erro: método não declarado
+    }
+}

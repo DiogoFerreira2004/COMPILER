@@ -1,0 +1,11 @@
+class ArrayTypes {
+    public int[] getArray(){
+        return new int[10];
+    }
+
+    public int sumArray(int[] arr){
+        int sum;
+        sum = 0;
+        return sum;
+    }
+}

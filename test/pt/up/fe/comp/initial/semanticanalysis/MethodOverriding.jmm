@@ -1,0 +1,20 @@
+import SuperClass;
+
+class MethodOverriding extends SuperClass {
+    public int overrideMethod(int a) {
+        return a * 2;
+    }
+    
+    public int methodTest() {
+        int a;
+        
+        a = this.overrideMethod(5);
+        
+        a = this.superMethod(10); // assume
+        
+        return a;
+    }
+    
+    public static void main(String[] args) {
+    }
+}

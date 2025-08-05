@@ -1,0 +1,40 @@
+ComplexIfElse {
+
+
+
+
+.construct ComplexIfElse().V {
+    invokespecial(this, "<init>").V;
+}
+
+.method public max(a.i32, b.i32, c.i32).i32 {
+   tmp0.bool :=.bool a.i32 <.bool b.i32;
+if (tmp0.bool) goto then2;
+tmp2.bool :=.bool b.i32 <.bool c.i32;
+if (tmp2.bool) goto then1;
+max.i32 :=.i32 c.i32;
+
+goto endif1;
+then1:
+max.i32 :=.i32 b.i32;
+
+endif1:
+
+goto endif2;
+then2:
+tmp1.bool :=.bool a.i32 <.bool c.i32;
+if (tmp1.bool) goto then0;
+max.i32 :=.i32 c.i32;
+
+goto endif0;
+then0:
+max.i32 :=.i32 a.i32;
+
+endif0:
+
+endif2:
+
+   ret.i32 max.i32;
+}
+
+}

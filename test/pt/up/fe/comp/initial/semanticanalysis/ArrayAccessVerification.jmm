@@ -1,0 +1,29 @@
+// Este arquivo testa o acesso a arrays e verificação de índices
+
+class ArrayAccessVerification {
+    public static void main(String[] args) {
+        int[] validArray;
+        int notAnArray;
+        boolean boolValue;
+        
+        validArray = new int[10];
+        notAnArray = 5;
+        boolValue = true;
+        
+        // Acesso válido a array
+        int validAccess;
+        validAccess = validArray[0]; // OK: acesso a array com índice inteiro
+        
+        // Acesso a algo que não é array
+        int invalidArrayAccess;
+        invalidArrayAccess = notAnArray[0]; // Erro: acesso a array em variável que não é array
+        
+        // Acesso a array com índice não inteiro
+        int invalidIndexAccess;
+        invalidIndexAccess = validArray[boolValue]; // Erro: índice de acesso a array deve ser inteiro
+        
+        // Tentativa de acessar índice de array usando outro array
+        int invalidArrayIndexAccess;
+        invalidArrayIndexAccess = validArray[validArray]; // Erro: índice não pode ser array
+    }
+}

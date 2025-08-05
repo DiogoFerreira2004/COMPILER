@@ -1,0 +1,11 @@
+import BaseClass;
+
+class InheritedMethods extends BaseClass {
+    public int calculate() {
+        return 42;
+    }
+    
+    public int overrideMethod(int value) {
+        return value * 2;
+    }
+}

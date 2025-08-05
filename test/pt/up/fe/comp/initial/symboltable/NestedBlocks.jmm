@@ -1,0 +1,12 @@
+class NestedBlocks {
+    public void process() {
+        int a;
+        a = 0;
+        {
+            int b;
+            b = 10;
+            a = a + b;
+        }
+        a = a * 2;
+    }
+}

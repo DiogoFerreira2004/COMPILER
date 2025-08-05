@@ -1,0 +1,12 @@
+// PropMethodArg.jmm
+class PropMethodArg {
+    public int foo(int n) { return n + 1; }
+
+    public int caller() {
+        int a;
+        a = 5;
+        return foo(a);   // propaga 5 para argumento de foo
+    }
+        public static void main(String[] args) {
+        }
+}

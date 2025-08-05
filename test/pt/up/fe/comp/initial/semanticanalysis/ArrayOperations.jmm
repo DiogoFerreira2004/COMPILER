@@ -1,0 +1,18 @@
+
+class ArrayOperations {
+    public int method() {
+        int[] a;
+        int[] b;
+        int c;
+        
+        a = new int[10];
+        b = new int[10];
+        
+        c = a + b; // invalido
+        
+        return c;
+    }
+    
+    public static void main(String[] args) {
+    }
+}

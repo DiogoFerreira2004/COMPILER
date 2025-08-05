@@ -1,0 +1,13 @@
+class ArrayInitializer {
+    public int[] getValues() {
+        int[] array;
+        array = [1, 2, 3, 4, 5];
+        return array;
+    }
+    
+    public int[] combine(int[] first, int[] second) {
+        int[] result;
+        result = [1, 2, 3];
+        return result;
+    }
+}
