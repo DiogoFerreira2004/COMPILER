@@ -1,118 +1,244 @@
-# Projeto de Compiladores
-Membros do grupo:
-  - Álvaro Luís Dias Amaral Alvim Torres (up202208954@up.pt)
-  - Diogo Miguel Fernandes Ferreira (up202205295@up.pt)
-  - Tomás Ferreira de Oliveira (up202208415@up.pt)
+# FEUP - COMPILERS - 2024/2025
+> Curricular Unit: COMP - [Compiladores](https://sigarra.up.pt/feup/pt/ucurr_geral.ficha_uc_view?pv_ocorrencia_id=541891)
 
-Todos os membros contribuíram igualmente para a totalidade do desenvolvimento do projeto.
+## 3rd Year - 2nd Semester Project
 
-# CP2
-## Otimizações a Nível da AST
+### Brief description:
 
-* **Propagação de Constantes**: Identifica variáveis com valores conhecidos estaticamente e substitui as suas ocorrências pelas constantes efetivas
-* **Folding de Constantes**: Avalia expressões com valores constantes em tempo de compilação e substitui-as pelos seus resultados
-* **Otimização Sensível a Ciclos**: Tratamento especial para variáveis modificadas dentro de ciclos para preservar a semântica correta
-* **Rastreio de Variáveis com Múltiplas Atribuições**: Deteta variáveis atribuídas em diferentes caminhos de execução (p. ex., ramos if-else)
-* **Tratamento de Varargs**: Transforma a sintaxe de parâmetros varargs em operações de array adequadas em toda a AST
-* **Identidades Algébricas**: Reconhece e otimiza padrões como multiplicação por 0/1, adição de 0, subtração de 0, entre outros
-* **Avaliação de Expressões Relacionais**: Resolve comparações constantes (como 5 < 10) durante a compilação
-* **Simplificação de Expressões Booleanas**: Otimiza expressões como AND/OR quando um dos operandos é constante
-* **Eliminação de Código Inatingível**: Remove código que nunca será executado (p. ex., após condições sempre falsas)
+This compiler project implements a complete compilation pipeline featuring advanced optimization techniques at multiple levels. Built as part of the Compilers course, it transforms source code through Abstract Syntax Tree (AST) optimizations, OLLIR (Optimized Low-Level Intermediate Representation) generation, register allocation, and finally produces efficient JVM bytecode using Jasmin.
 
-## Otimizações OLLIR
+The compiler includes sophisticated optimization strategies such as constant propagation and folding, algebraic identity recognition, dead code elimination, and loop-aware optimizations. It features an intelligent register allocation system using graph coloring with the DSatur algorithm, supporting variable spilling when registers are insufficient. The system also implements live variable analysis, interference graph construction, and generates optimized JVM instructions with specialized handling for method invocations, array operations, and control flow structures.
 
-* **Correção de Formato de Importação**: Corrige problemas comuns de sintaxe em declarações de importação
-* **Aplicação da Ordem de Elementos**: Garante que campos, construtores e métodos apareçam na ordem correta
-* **Correção de Invocação de Métodos**: Adiciona instruções de invocação de métodos ausentes quando necessário
-* **Indentação de Corpos de Métodos**: Melhora a legibilidade do código OLLIR gerado
-* **Gestão de Etiquetas Sequenciais**: Utiliza contador sequencial global para garantir etiquetas únicas
-* **Armazenamento em Cache de Resultados de Expressões**: Evita recálculos durante a geração de código
-* **Formatação Consistente de Estruturas de Controlo**: Aplicação de regras específicas para if-then-else e ciclos
+Key features include support for varargs methods, efficient constant loading, increment optimization detection, and automatic calculation of stack and local variable limits. The project demonstrates practical application of compiler theory concepts including data flow analysis, register allocation algorithms, and code generation optimization techniques.
 
-## Análise de Tempo de Vida e Grafo de Interferência
+We hope you find it useful!
 
-* **Cálculo de Conjuntos DEF/USE**: Identifica onde as variáveis são definidas e utilizadas
-* **Iteração In/Out até Ponto Fixo**: Algoritmo de análise de fluxo de dados para determinar tempo de vida
-* **Construção de Intervalos de Vida**: Mapeia pontos de instrução onde cada variável está viva
-* **Construção do Grafo de Interferência**: Identifica quais variáveis não podem partilhar registos
-* **Tratamento de Interferências Implícitas**: Identificação de interferências que não são óbvias no código-fonte
-* **Validação e Correção do Grafo**: Garante simetria e consistência no grafo de interferência
+## Developed by
 
-## Alocação de Registos
+- **Álvaro Luís Dias Amaral Alvim Torres** - up202208954@up.pt  
+- **Diogo Miguel Fernandes Ferreira** - up202205295@up.pt  
+- **Tomás Ferreira de Oliveira** - up202208415@up.pt
 
-* **Coloração de Grafo DSatur**: Implementa o algoritmo DSatur para alocação eficiente de registos
-* **Coalescência de Cópias**: Funde variáveis em instruções de cópia quando os seus intervalos de vida não se sobrepõem
-* **Modos de Alocação de Registos**:
-  * Modo `-r=-1`: Utiliza o número predefinido de registos (sem otimização)
-  * Modo `-r=0`: Otimiza para utilizar o número mínimo de registos
-  * Modo `-r=n` (n > 0): Utiliza no máximo n registos com derrame de variáveis quando necessário
-* **Gestão de Spilling de Variáveis**: Quando não há registos suficientes, algumas variáveis partilham registos
-* **Priorização de Variáveis**: Atribui registos primeiro a variáveis com maior número de interferências
-* **Tratamento de Variáveis Não Utilizadas**: Permite que variáveis não utilizadas partilham registos
+*All members contributed equally to the entirety of the project development.*
 
-## Otimizações de Casos Especiais
+---
 
-* **Tratamento de Parâmetros Especiais**: Garante que `this` esteja no registo 0 e outros parâmetros tenham registos dedicados
-* **Otimização de Variáveis Temporárias**: Prioriza a alocação de registos para variáveis regulares em detrimento das temporárias
-* **Deteção de Padrões Tipo Switch**: Tratamento otimizado de estruturas if-else em cascata
-* **Otimização do Método Main**: Alocação de registos especial para o método main
-* **Alocação de Emergência**: Sistema de segurança para garantir alocação quando métodos normais falham
-* **Normalização de Etiquetas**: Uniformização da nomenclatura de etiquetas para estruturas de controlo
-* **Tratamento Short-Circuit para Operadores Lógicos**: Implementação eficiente de avaliação para AND/OR
-* **Gestão Especial de Retorno com Variáveis Multi-Atribuídas**: Preserva variáveis originais em instruções de retorno
+## Table of Contents
 
-# CP3
+- [CP2 - AST Level Optimizations](#cp2---ast-level-optimizations)
+- [OLLIR Optimizations](#ollir-optimizations)
+- [Live Variable Analysis and Interference Graph](#live-variable-analysis-and-interference-graph)
+- [Register Allocation](#register-allocation)
+- [Special Case Optimizations](#special-case-optimizations)
+- [CP3 - Jasmin Code Generation](#cp3---jasmin-code-generation)
+- [JVM Instruction Optimizations](#jvm-instruction-optimizations)
+- [Stack and Local Variable Analysis](#stack-and-local-variable-analysis)
+- [Type Management and Descriptors](#type-management-and-descriptors)
+- [Control Flow and Labels](#control-flow-and-labels)
+- [Special Case Handling](#special-case-handling)
 
-## Geração de Código Jasmin
+---
 
-* **Estrutura de Classes**: Gera declarações de classe, superclasse e constructores por defeito
-* **Campos e Métodos**: Cria declarações completas de campos e métodos com modificadores apropriados
-* **Assinaturas de Métodos**: Gera assinaturas corretas incluindo parâmetros e tipos de retorno
-* **Suporte para Varargs**: Deteta e trata métodos com parâmetros variáveis de forma automática
-* **Invocações de Métodos**: Implementa chamadas estáticas, virtuais e especiais com gestão adequada da pilha
-* **Operações com Arrays**: Suporte completo para criação, acesso, atribuição e obtenção do comprimento de arrays
-* **Gestão de Objectos**: Criação de objectos e acesso/atribuição de campos com validação de tipos
+## CP2 - AST Level Optimizations
 
-## Otimizações de Instruções JVM
+### Constant Propagation and Folding
 
-* **Instruções de Carregamento Otimizadas**: Utiliza formas especializadas como `iload_0`, `aload_1`, `istore_2` quando possível
-* **Carregamento de Constantes Eficiente**: Seleciona automaticamente entre `iconst_0`, `bipush`, `sipush` e `ldc` conforme o valor
-* **Otimização de Incrementos**: Deteta padrões `i = i + 1` e substitui pela instrução `iinc` mais eficiente
-* **Comparações com Zero**: Utiliza instruções de comparação directa (`iflt`, `ifne`) em vez de comparações de dois operandos
-* **Optimização Cross-Instruction**: Identifica e optimiza padrões que atravessam múltiplas instruções OLLIR
-* **Gestão Inteligente de Constantes**: Tratamento especial para valores booleanos e constantes numéricas
+- **Constant Propagation**: Identifies variables with statically known values and replaces their occurrences with effective constants
+- **Constant Folding**: Evaluates expressions with constant values at compile time and replaces them with their results
+- **Loop-Aware Optimization**: Special treatment for variables modified within loops to preserve correct semantics
+- **Multi-Assignment Variable Tracking**: Detects variables assigned in different execution paths (e.g., if-else branches)
 
-## Análise de Pilha e Variáveis Locais
+### Expression Optimization
 
-* **Cálculo de `.limit stack`**: Determina o tamanho máximo da pilha necessário para cada método
-* **Cálculo de `.limit locals`**: Calcula o número exacto de variáveis locais requeridas
-* **Análise de Chamadas de Métodos**: Considera argumentos e tipos de retorno no cálculo da pilha
-* **Tratamento de Operações com Arrays**: Análise específica para operações que requerem múltiplos valores na pilha
-* **Optimização para Método Main**: Tratamento especial para métodos main com apenas uma instrução de retorno
-* **Validação de Limites**: Garante que os valores calculados estão dentro dos limites válidos da JVM
+- **Algebraic Identities**: Recognizes and optimizes patterns like multiplication by 0/1, addition of 0, subtraction of 0, among others
+- **Relational Expression Evaluation**: Resolves constant comparisons (like 5 < 10) during compilation
+- **Boolean Expression Simplification**: Optimizes expressions like AND/OR when one operand is constant
+- **Dead Code Elimination**: Removes code that will never be executed (e.g., after always-false conditions)
 
-## Gestão de Tipos e Descritores
+### Varargs and Special Handling
 
-* **Descritores de Tipo JVM**: Conversão automática de tipos OLLIR para descritores bytecode Java
-* **Suporte para Arrays de String**: Tratamento especializado para arrays de strings (`[Ljava/lang/String;`)
-* **Identificação de Tipos Primitivos**: Reconhecimento e conversão de tipos void, integer e boolean
-* **Formatação de Nomes de Classes**: Conversão de nomes com pontos para formato de barra (`/`)
-* **Validação de Tipos**: Verificação de consistência entre tipos OLLIR e descritores gerados
+- **Varargs Treatment**: Transforms varargs parameter syntax into appropriate array operations throughout the AST
 
-## Controlo de Fluxo e Etiquetas
+---
 
-* **Gestão Automática de Etiquetas**: Geração sequencial de etiquetas únicas para estruturas de controlo
-* **Comparações Optimizadas**: Implementação eficiente de operações relacionais com geração de etiquetas
-* **Saltos Condicionais e Incondicionais**: Suporte completo para instruções `if-else`, ciclos e `goto`
-* **Posicionamento de Etiquetas**: Colocação correcta de etiquetas no código gerado para manter a semântica
-* **Operações Unárias**: Implementação de negação lógica e aritmética
+## OLLIR Optimizations
 
-## Tratamento de Casos Especiais
+### Code Structure and Formatting
 
-* **Array Length**: Detecção automática e geração de código para operações `array.length`
-* **Instrospção por Reflexão**: Utiliza reflexão Java para analisar propriedades de métodos quando necessário
-* **Tratamento de Varargs**: Identificação de métodos varargs através de múltiplas estratégias
-* **Validação de Código Gerado**: Verifica se o código Jasmin contém elementos essenciais (classe, métodos, etc.)
-* **Recuperação de Erros**: Mecanismos de fallback para garantir geração de código mesmo com problemas parciais
-* **Otimização de Operações Aritméticas**: Tratamento especializado para operações como AND, OR, ADD, SUB, MUL, DIV
+- **Import Format Correction**: Fixes common syntax issues in import declarations
+- **Element Order Application**: Ensures fields, constructors, and methods appear in correct order
+- **Method Invocation Correction**: Adds missing method invocation instructions when necessary
+- **Method Body Indentation**: Improves readability of generated OLLIR code
 
+### Control Flow and Efficiency
+
+- **Sequential Label Management**: Uses global sequential counter to ensure unique labels
+- **Expression Result Caching**: Avoids recalculations during code generation
+- **Consistent Control Structure Formatting**: Applies specific rules for if-then-else and loops
+
+---
+
+## Live Variable Analysis and Interference Graph
+
+### Data Flow Analysis
+
+- **DEF/USE Set Calculation**: Identifies where variables are defined and used
+- **In/Out Iteration to Fixed Point**: Data flow analysis algorithm to determine variable lifetime
+- **Live Interval Construction**: Maps instruction points where each variable is live
+
+### Interference Management
+
+- **Interference Graph Construction**: Identifies which variables cannot share registers
+- **Implicit Interference Handling**: Identification of interferences not obvious in source code
+- **Graph Validation and Correction**: Ensures symmetry and consistency in interference graph
+
+---
+
+## Register Allocation
+
+### Graph Coloring Algorithm
+
+- **DSatur Graph Coloring**: Implements DSatur algorithm for efficient register allocation
+- **Copy Coalescing**: Merges variables in copy instructions when their live ranges don't overlap
+
+### Allocation Modes
+
+- **Mode `-r=-1`**: Uses default number of registers (no optimization)
+- **Mode `-r=0`**: Optimizes to use minimum number of registers
+- **Mode `-r=n` (n > 0)**: Uses at most n registers with variable spilling when necessary
+
+### Advanced Features
+
+- **Variable Spilling Management**: When insufficient registers, some variables share registers
+- **Variable Prioritization**: Assigns registers first to variables with highest interference count
+- **Unused Variable Handling**: Allows unused variables to share registers
+
+---
+
+## Special Case Optimizations
+
+### Parameter and Method Handling
+
+- **Special Parameter Treatment**: Ensures `this` is in register 0 and other parameters have dedicated registers
+- **Temporary Variable Optimization**: Prioritizes register allocation for regular variables over temporary ones
+- **Switch Pattern Detection**: Optimized treatment of cascading if-else structures
+- **Main Method Optimization**: Special register allocation for main method
+
+### Advanced Features
+
+- **Emergency Allocation**: Safety system to guarantee allocation when normal methods fail
+- **Label Normalization**: Standardization of label naming for control structures
+- **Short-Circuit for Logical Operators**: Efficient evaluation implementation for AND/OR
+- **Multi-Assigned Variable Return Management**: Preserves original variables in return instructions
+
+---
+
+## CP3 - Jasmin Code Generation
+
+### Class Structure Generation
+
+- **Class Declarations**: Generates class, superclass, and default constructor declarations
+- **Fields and Methods**: Creates complete field and method declarations with appropriate modifiers
+- **Method Signatures**: Generates correct signatures including parameters and return types
+- **Varargs Support**: Automatically detects and handles methods with variable parameters
+
+### Method Invocation and Operations
+
+- **Method Invocations**: Implements static, virtual, and special calls with proper stack management
+- **Array Operations**: Complete support for array creation, access, assignment, and length operations
+- **Object Management**: Object creation and field access/assignment with type validation
+
+---
+
+## JVM Instruction Optimizations
+
+### Specialized Instructions
+
+- **Optimized Loading Instructions**: Uses specialized forms like `iload_0`, `aload_1`, `istore_2` when possible
+- **Efficient Constant Loading**: Automatically selects between `iconst_0`, `bipush`, `sipush`, and `ldc` based on value
+- **Increment Optimization**: Detects `i = i + 1` patterns and replaces with more efficient `iinc` instruction
+- **Zero Comparisons**: Uses direct comparison instructions (`iflt`, `ifne`) instead of two-operand comparisons
+
+### Cross-Instruction Analysis
+
+- **Cross-Instruction Optimization**: Identifies and optimizes patterns spanning multiple OLLIR instructions
+- **Intelligent Constant Management**: Special handling for boolean values and numeric constants
+
+---
+
+## Stack and Local Variable Analysis
+
+### Limit Calculations
+
+- **`.limit stack` Calculation**: Determines maximum stack size needed for each method
+- **`.limit locals` Calculation**: Calculates exact number of local variables required
+- **Method Call Analysis**: Considers arguments and return types in stack calculation
+- **Array Operations Analysis**: Specific analysis for operations requiring multiple stack values
+
+### Special Method Handling
+
+- **Main Method Optimization**: Special treatment for main methods with single return instruction
+- **Limit Validation**: Ensures calculated values are within valid JVM limits
+
+---
+
+## Type Management and Descriptors
+
+### Type System
+
+- **JVM Type Descriptors**: Automatic conversion from OLLIR types to Java bytecode descriptors
+- **String Array Support**: Specialized handling for string arrays (`[Ljava/lang/String;`)
+- **Primitive Type Identification**: Recognition and conversion of void, integer, and boolean types
+- **Class Name Formatting**: Conversion from dot notation to slash format (/)
+- **Type Validation**: Consistency checking between OLLIR types and generated descriptors
+
+---
+
+## Control Flow and Labels
+
+### Flow Control
+
+- **Automatic Label Management**: Sequential generation of unique labels for control structures
+- **Optimized Comparisons**: Efficient implementation of relational operations with label generation
+- **Conditional and Unconditional Jumps**: Complete support for if-else, loops, and goto instructions
+- **Label Positioning**: Correct label placement in generated code to maintain semantics
+- **Unary Operations**: Implementation of logical and arithmetic negation
+
+---
+
+## Special Case Handling
+
+### Advanced Features
+
+- **Array Length**: Automatic detection and code generation for `array.length` operations
+- **Reflection Introspection**: Uses Java reflection to analyze method properties when necessary
+- **Varargs Treatment**: Varargs method identification through multiple strategies
+- **Generated Code Validation**: Verifies Jasmin code contains essential elements (class, methods, etc.)
+- **Error Recovery**: Fallback mechanisms to ensure code generation even with partial problems
+- **Arithmetic Operation Optimization**: Specialized handling for operations like AND, OR, ADD, SUB, MUL, DIV
+
+---
+
+## Project Structure
+
+The compiler is organized into several key phases:
+
+1. **Frontend**: Lexical and syntactic analysis
+2. **AST Optimization**: High-level optimizations on the abstract syntax tree
+3. **OLLIR Generation**: Intermediate representation creation with optimizations
+4. **Register Allocation**: Efficient register assignment using graph coloring
+5. **Code Generation**: Final Jasmin bytecode generation with JVM optimizations
+
+Each phase includes comprehensive error handling and optimization strategies to produce efficient and correct bytecode output.
+
+---
+
+## Usage
+
+The compiler supports various optimization levels and register allocation strategies through command-line parameters. Key options include:
+
+- `-r=-1`: Default register allocation
+- `-r=0`: Minimum register optimization
+- `-r=n`: Constrained register allocation with spilling
+
+The system automatically applies all AST and OLLIR optimizations, with intelligent fallback mechanisms to ensure compilation success even in edge cases.
